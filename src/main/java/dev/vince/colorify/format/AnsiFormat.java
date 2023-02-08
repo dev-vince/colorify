@@ -1,6 +1,7 @@
 package dev.vince.colorify.format;
 
 import dev.vince.colorify.ansi.AnsiCodeEnum;
+import dev.vince.colorify.util.AnsiUtil;
 
 /**
  * The AnsiFormat class is a class that allows you to format a String with ANSI color codes.
@@ -13,16 +14,22 @@ import dev.vince.colorify.ansi.AnsiCodeEnum;
  * @since 1.0
  */
 public final class AnsiFormat {
+    private static boolean hasEnabledAnsiSupportWin = false;
     private final AnsiCodeEnum[] keys;
 
     /**
      * Initializes a new AnsiFormat with the specified AnsiColorEnums to use to format the String.
+     * Will also enable Windows 10 ANSI support.
      * @since 1.0
      * @see AnsiCodeEnum
      * @param keys the AnsiColorEnums to use to format the String.
      */
     public AnsiFormat(final AnsiCodeEnum... keys) {
         this.keys = keys;
+        if(!hasEnabledAnsiSupportWin) {
+            AnsiUtil.enableAnsiSupportWin();
+            hasEnabledAnsiSupportWin = true;
+        }
     }
 
 
@@ -33,7 +40,7 @@ public final class AnsiFormat {
      * @param text the String to format.
      * @return the formatted String.
      */
-    public final String format(final String text) {
+    public String format(final String text) {
         final StringBuilder builder = new StringBuilder();
 
         for(final AnsiCodeEnum key : this.keys) {
