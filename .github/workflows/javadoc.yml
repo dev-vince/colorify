@@ -21,7 +21,7 @@ jobs:
       - name: Setup JDK
         uses: actions/setup-java@v3
         with:
-          java-version: '8'
+          java-version: '17'
           distribution: 'oracle'
           
       - name: Generate Javadoc with Maven
