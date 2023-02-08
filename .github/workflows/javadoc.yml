@@ -15,3 +15,5 @@ jobs:
     steps:
       - name: Deploy javadoc to Github Pages
         uses: dev-vince/actions-publish-javadoc@v1.0.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
