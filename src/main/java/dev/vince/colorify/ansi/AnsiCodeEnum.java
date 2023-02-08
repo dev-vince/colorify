@@ -101,12 +101,6 @@ public enum AnsiCodeEnum {
         return getCode();
     }
 
-    public enum AnsiCodeType{
-        COLOR,
-        FORMAT,
-        BACKGROUND
-    }
-
     /**
      * Returns a list of all the ANSI codes of the given type.
      *
@@ -114,7 +108,7 @@ public enum AnsiCodeEnum {
      * @return A list of all the ANSI codes of the given type.
      * @since 1.0
      */
-    public static List<AnsiCodeEnum> getAnsiCodesByType(final AnsiCodeType type){
+    public static final List<AnsiCodeEnum> getAnsiCodesByType(final AnsiCodeType type){
         final List<AnsiCodeEnum> list = new ArrayList<>();
 
         for (AnsiCodeEnum ansiCodeEnum : AnsiCodeEnum.values()) {
@@ -124,5 +118,11 @@ public enum AnsiCodeEnum {
         }
 
         return list;
+    }
+
+    public enum AnsiCodeType{
+        COLOR,
+        FORMAT,
+        BACKGROUND
     }
 }
