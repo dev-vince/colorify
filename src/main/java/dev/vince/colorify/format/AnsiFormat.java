@@ -14,7 +14,8 @@ import dev.vince.colorify.util.AnsiUtil;
  * @since 1.0
  */
 public final class AnsiFormat {
-    private static boolean hasEnabledAnsiSupportWin = false;
+    private static boolean hasEnabledAnsiSupportWin = System.getProperty("os.name").contains("Windows") ? false : true;
+
     private final AnsiCodeEnum[] keys;
 
     /**

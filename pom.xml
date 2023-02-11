@@ -142,6 +142,12 @@
             <artifactId>jna-platform</artifactId>
             <version>5.13.0</version>
         </dependency>
+        
+        <dependency>
+            <groupId>io.github.dev-vince</groupId>
+            <artifactId>colorify</artifactId>
+            <version>1.0.0</version>
+        </dependency>
 
     </dependencies>
 </project>
